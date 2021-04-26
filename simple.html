@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>Simple Freesound Query</title>
+    <script type="text/javascript" src="freesound.js"></script>
+</head>
+<body style="font-family: Helvetica">
+<p>Freesound Searching</p>
+<input type="text" onsubmit="findSounds" id='searchTerm'></body>input>
+<button onclick="findSounds()">Search</button>
+<audio id="soundfile" src=""></audio></audio>
+<script type="text/javascript">
+
+<script>
+    window.onload = function(){
+
+        freesound.setToken("j1xH7iFdsoJTPblpbV5XJP10Z5hwCzFZHKyQ4ohg");
+    }
+    let soundfile = document.getElementById('soundfile');
+
+    function findSounds(searchWord) {
+        if(!searchWord){
+            searchWord = document.getElementById('searchTerm').value;
+        }
+        console.log("find: ", searchWord)
+    freesound.textSearch(searchWord, function(sounds){
+        console.log(sounds)
+        let soundID = sounds.results[0].id;
+    })
+    }
+
+    function getSound(soundID){
+        freesound.getSound(soundID,
+        function(sound){
+            console.log(sound);
+            soundfile.src = sound.url;
+        })
+    }
+</script>
+</body>
+</html>
