@@ -10,43 +10,43 @@
 <input type="text" onsubmit="findSounds" id='searchTerm' value="keyword">
 <button onclick="findSounds()">Search</button>
 <audio id="soundfile" src="" controls crossorigin="anonymous"></audio>
-
 <script type="text/javascript">
 
+
     window.onload = function(){
-        freesound.setToken("Sa2fz69rAvDoTQ94BoizW82lEnz1nDqF9GlP2wrT");
+
+        freesound.setToken("j1xH7iFdsoJTPblpbV5XJP10Z5hwCzFZHKyQ4ohg");
     }
     let soundfile = document.getElementById('soundfile');
     let searchInput = document.getElementById('searchTerm');
 
-    searchInput.addEventListener("keyup", function (event) {
-      if (event.keyCode === 13) {
-        console.log("submit");
-        findSounds();
-        event.preventDefault();
-      }
+    searchTerm.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+            console.log("submit");
+            findSounds();
+            event.preventDefault();
+        }
     })
 
     function findSounds(searchWord) {
-      if(!searchWord){
-          searchWord = document.getElementById('searchTerm').value;
-      }
-      console.log("find: ", searchWord)
+        if(!searchWord){
+            searchWord = document.getElementById('searchTerm').value;
+        }
+        console.log("find: ", searchWord)
 
-      freesound.textSearch(searchWord, {}, function(sounds){
-          console.log(sounds)
-          let soundID = sounds.results[0].id;
-          getSound(soundID);
-      })
+    
+        freesound.textSearch(searchWord, {}, function(sounds){
+            console.log(sounds)
+            let soundID = sounds.results[0].id;
+            getSound(soundID);
+        })
     }
 
     function getSound(soundID){
-      freesound.getSound(soundID, function(sound){
-          console.log(sound);
-          let file = sound.previews['preview-lq-mp3'];
-          console.log("file: ", file)
-          soundfile.src = file;
-      })
+        freesound.getSound(soundID, function(sound){
+            console.log(sound);
+            soundfile.src = sound.download;
+        })
     }
 </script>
 </body>
