@@ -7,7 +7,7 @@
 </head>
 <body style="font-family: Helvetica">
 <p>Freesound Searching</p>
-<input type="text" onsubmit="findSounds" id='searchTerm'></body>input>
+<input type="text" onsubmit="findSounds" id='searchTerm' value="keyword"></body>input>
 <button onclick="findSounds()">Search</button>
 <audio id="soundfile" src=""></audio></audio>
 <script type="text/javascript">
@@ -24,6 +24,13 @@
             searchWord = document.getElementById('searchTerm').value;
         }
         console.log("find: ", searchWord)
+
+    soundfile.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+        console.log("submit");
+        changeText();
+        event.preventDefault();
+  }
     freesound.textSearch(searchWord, function(sounds){
         console.log(sounds)
         let soundID = sounds.results[0].id;
