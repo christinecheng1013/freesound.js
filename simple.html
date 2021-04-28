@@ -4,15 +4,138 @@
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <title>Simple Freesound Query</title>
     <script type="text/javascript" src="freesound.js"></script>
+    <script type="text/javascript" src="./samplers.js"></script>
+    <link rel="stylesheet" src="./samplers.css">
+    <style>
+      h1 {
+  background-color: #33ffff;
+  color: black;
+  font-size: 3em;
+  border-radius: 10px 10px 10px 10px;
+}
+
+h2 {
+  font-size: 2em;
+  color: seaGreen;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.letters {
+  border: solid;
+  text-align: center;
+}
+.onoff {
+  background-color: #66ffff;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+button {
+  border: solid grey;
+  border-radius: 25px 25px 25px 25px;
+  padding: 4px;
+  margin: 40px;
+  height: 50px;
+  width: 70px;
+  background: linear-gradient(90deg, aquamarine, turquoise, lightcyan);
+}
+
+#search {
+ background: linear-gradient(90deg, lightgrey, grey, rgb(116, 110, 110));
+ border-radius: 2px 2px 2px 2px;
+ padding: 0px;
+ margin: 0px;
+ height: 30px;
+}
+
+#soundfile {
+  margin: 10px 2px 2px 2px;
+}
+
+.slider {
+  font-size: 0.9em;
+  font-weight: bold;
+  padding: 10px;
+  margin: 50px;
+  color: black;
+  background: linear-gradient(
+    90deg,
+    paleTurquoise,
+    paleGreen,
+    springGreen,
+    aquamarine,
+    paleTurquoise
+  );
+  border: solid grey;
+  border-radius: 25px 25px 25px 25px;
+}
+
+input {
+  width: 90%;
+}
+
+body {
+  font-family: Helvetica;
+  background-color: aquamarine;
+  border: solid;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.userinterface {
+  background: linear-gradient(90deg, lightCyan, springGreen, lightCyan);
+  padding: 2px 2px 2px 2px;
+  border-radius: 10px 10px 10px 10px;
+  border: solid 4px LightGray;
+}
+
+
+    </style>
 </head>
-<body style="font-family: Helvetica">
-<p>Freesound Searching</p>
-<input type="text" onsubmit="findSounds" id='searchTerm' value="keyword">
-<button onclick="findSounds()">Search</button>
-<audio id="soundfile" src="" controls crossorigin="anonymous"></audio>
+
+
+
+<h1 id='Samplersss' class="letters">Jam in the Band Camp</h1>
+<p> Jam in the Band Camp consists of audio samples, microphone input and effect processing. To begin with, please press the "On" button to trigger the Sampler. Chime 1, Chime 2 and Chime 3 are audio files. Mic input is the microphone input. Audio files, microphone input and soundfiles from freesound API could be processed by audio effect processing. Users could choose to move the sliders to change the level of audio effects.
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+<h2 id='GUI' class="letters">GUI</h2>
+
+<div class='userinterface'>
+  <button id=onoff class='onoff'>On</button>
+  <button id='buttonA'>Chime 1</button>
+  <button id='buttonB'>Chime 2</button>
+  <button id='buttonC'>Chime 3</button>
+  <button id='mic'>Mic Input</button>
+  <br>
+  <h3>Freesound Searching</h3>
+  <br>
+  <input type="text" onsubmit="findSounds" id='searchTerm' value="keyword">
+  <button id="search" onclick="findSounds()">Search</button>
+  <audio id="soundfile" src="" controls crossorigin="anonymous"></audio>
+
+  <br>
+  <h3>Chorus</h3>
+    <div class='slider'>Frequency<input id='slider1' type="range" min="0" max="10" value="0"></div>
+    <div class='slider'>Delay Time<input id='slider2' type="range" min="0" max="10" value="0"></div>
+    <div class='slider'>Depth<input id='slider3' type="range" min="0" max="10" value="0"></div>
+    <h3>Distortion</h3>
+    <div class='slider'>Distortion<input id='slider4' type="range" min="0" max="10" value="0"></div>
+    <h3>Phasor</h3>
+    <div class='slider'>Frequency<input id='slider5' type="range" min="0" max="10" value="0"></div>
+    <div class='slider'>Octaves<input id='slider6' type="range" min="0" max="10" value="0"></div>
+    <div class='slider'>Base Frequency<input id='slider7' type="range" min="0" max="300" value="0"></div>
+</div>
+
 
 <script type="text/javascript">
-
+ 
     window.onload = function(){
         freesound.setToken("Sa2fz69rAvDoTQ94BoizW82lEnz1nDqF9GlP2wrT");
     }
@@ -48,6 +171,8 @@
           soundfile.src = file;
       })
     }
+
+
 </script>
 </body>
 </html>

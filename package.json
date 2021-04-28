@@ -15,6 +15,7 @@
     },
     "dependencies": {
         "http-server": "^0.12.3",
+        "tone": "^14.7.77",
         "web-audio-api": "*"
     }
 }
