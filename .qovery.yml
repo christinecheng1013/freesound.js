@@ -3,6 +3,7 @@ application:
   name: "jam-in-a-band-camp"
   project: "Jam in the Band Camp"
   organization: "QoveryCommunity"
+  publicly_accessible: "true"
 routers:
 - name: "main-jam-in-a-band-camp"
   routes:
