@@ -8,4 +8,4 @@ COPY . .
 RUN npm install
 
 EXPOSE 8080
-CMD node freesound.js
+CMD node samplers.js simple.html
