@@ -1,0 +1,11 @@
+---
+application:
+  name: "freesound-js"
+  project: "Jam in a Band Camp"
+  organization: "QoveryCommunity"
+routers:
+- name: "main-freesound-js"
+  routes:
+  - application_name: "freesound-js"
+    paths:
+    - "/*"
