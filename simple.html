@@ -1,98 +1,14 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.17/Tone.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <title>Simple Freesound Query</title>
     <script type="text/javascript" src="freesound.js"></script>
-    <script type="text/javascript" src="./samplers.js"></script>
-    <link rel="stylesheet" src="./samplers.css">
-    <style>
-      h1 {
-  background-color: #33ffff;
-  color: black;
-  font-size: 3em;
-  border-radius: 10px 10px 10px 10px;
-}
+    <!-- <script type="text/javascript" src="samplers.js"></script> -->
 
-h2 {
-  font-size: 2em;
-  color: seaGreen;
-  border-radius: 10px 10px 10px 10px;
-}
-
-.letters {
-  border: solid;
-  text-align: center;
-}
-.onoff {
-  background-color: #66ffff;
-  color: black;
-  font-weight: bold;
-  font-size: 20px;
-}
-
-button {
-  border: solid grey;
-  border-radius: 25px 25px 25px 25px;
-  padding: 4px;
-  margin: 40px;
-  height: 50px;
-  width: 70px;
-  background: linear-gradient(90deg, aquamarine, turquoise, lightcyan);
-}
-
-#search {
- background: linear-gradient(90deg, lightgrey, grey, rgb(116, 110, 110));
- border-radius: 2px 2px 2px 2px;
- padding: 0px;
- margin: 0px;
- height: 30px;
-}
-
-#soundfile {
-  margin: 10px 2px 2px 2px;
-}
-
-.slider {
-  font-size: 0.9em;
-  font-weight: bold;
-  padding: 10px;
-  margin: 50px;
-  color: black;
-  background: linear-gradient(
-    90deg,
-    paleTurquoise,
-    paleGreen,
-    springGreen,
-    aquamarine,
-    paleTurquoise
-  );
-  border: solid grey;
-  border-radius: 25px 25px 25px 25px;
-}
-
-input {
-  width: 90%;
-}
-
-body {
-  font-family: Helvetica;
-  background-color: aquamarine;
-  border: solid;
-  margin: 10px;
-  padding: 20px;
-  border-radius: 10px 10px 10px 10px;
-}
-
-.userinterface {
-  background: linear-gradient(90deg, lightCyan, springGreen, lightCyan);
-  padding: 2px 2px 2px 2px;
-  border-radius: 10px 10px 10px 10px;
-  border: solid 4px LightGray;
-}
-
-
-    </style>
+    <link rel="stylesheet" href="samplers.css">
+   
 </head>
 
 
@@ -107,11 +23,14 @@ body {
 
 <h2 id='GUI' class="letters">GUI</h2>
 
+
+
 <div class='userinterface'>
   <button id=onoff class='onoff'>On</button>
   <button id='buttonA'>Chime 1</button>
   <button id='buttonB'>Chime 2</button>
   <button id='buttonC'>Chime 3</button>
+  <button id='buttonD'>Sound file from API</button>
   <button id='mic'>Mic Input</button>
   <br>
   <h3>Freesound Searching</h3>
@@ -134,45 +53,9 @@ body {
 </div>
 
 
-<script type="text/javascript">
- 
-    window.onload = function(){
-        freesound.setToken("Sa2fz69rAvDoTQ94BoizW82lEnz1nDqF9GlP2wrT");
-    }
-    let soundfile = document.getElementById('soundfile');
-    let searchInput = document.getElementById('searchTerm');
-
-    searchInput.addEventListener("keyup", function (event) {
-      if (event.keyCode === 13) {
-        console.log("submit");
-        findSounds();
-        event.preventDefault();
-      }
-    })
-
-    function findSounds(searchWord) {
-      if(!searchWord){
-          searchWord = document.getElementById('searchTerm').value;
-      }
-      console.log("find: ", searchWord)
-
-      freesound.textSearch(searchWord, {}, function(sounds){
-          console.log(sounds)
-          let soundID = sounds.results[0].id;
-          getSound(soundID);
-      })
-    }
-
-    function getSound(soundID){
-      freesound.getSound(soundID, function(sound){
-          console.log(sound);
-          let file = sound.previews['preview-lq-mp3'];
-          console.log("file: ", file)
-          soundfile.src = file;
-      })
-    }
 
 
-</script>
+
+<script type="text/javascript" src="samplers.js"></script>
 </body>
 </html>

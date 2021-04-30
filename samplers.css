@@ -1,0 +1,86 @@
+
+    h1 {
+background-color: #33ffff;
+color: black;
+font-size: 3em;
+border-radius: 10px 10px 10px 10px;
+}
+
+h2 {
+font-size: 2em;
+color: seaGreen;
+border-radius: 10px 10px 10px 10px;
+}
+
+.letters {
+border: solid;
+text-align: center;
+}
+.onoff {
+background-color: #66ffff;
+color: black;
+font-weight: bold;
+font-size: 20px;
+}
+
+button {
+border: solid grey;
+border-radius: 25px 25px 25px 25px;
+padding: 4px;
+margin: 40px;
+height: 50px;
+width: 70px;
+background: linear-gradient(90deg, aquamarine, turquoise, lightcyan);
+}
+
+#search {
+background: linear-gradient(90deg, lightgrey, grey, rgb(116, 110, 110));
+border-radius: 2px 2px 2px 2px;
+padding: 0px;
+margin: 0px;
+height: 30px;
+}
+
+#soundfile {
+margin: 10px 2px 2px 2px;
+}
+
+.slider {
+font-size: 0.9em;
+font-weight: bold;
+padding: 10px;
+margin: 50px;
+color: black;
+background: linear-gradient(
+90deg,
+paleTurquoise,
+paleGreen,
+springGreen,
+aquamarine,
+paleTurquoise
+);
+border: solid grey;
+border-radius: 25px 25px 25px 25px;
+}
+
+input {
+width: 90%;
+}
+
+body {
+font-family: Helvetica;
+background-color: aquamarine;
+border: solid;
+margin: 10px;
+padding: 20px;
+border-radius: 10px 10px 10px 10px;
+}
+
+.userinterface {
+background: linear-gradient(90deg, lightCyan, springGreen, lightCyan);
+padding: 2px 2px 2px 2px;
+border-radius: 10px 10px 10px 10px;
+border: solid 4px LightGray;
+}
+
+

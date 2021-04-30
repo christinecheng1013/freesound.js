@@ -4,6 +4,7 @@
     "description": "Javascript wrapper of the Freesound API",
     "main": "freesound.js",
     "author": "Gerard Roma",
+    "type": "module",
     "keywords": [
         "freesound",
         "audio",
